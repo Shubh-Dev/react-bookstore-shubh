@@ -5,6 +5,9 @@ import AddBook from './AddBook';
 const BookList = () => (
   <div>
     <Book />
+    <Book />
+    <Book />
+    <Book />
     <AddBook />
   </div>
 );
