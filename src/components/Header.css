@@ -1,0 +1,14 @@
+.header-container {
+    display: flex;
+    justify-content: space-around
+}
+
+.nav-bar {
+    display: flex;
+    margin-top: 20px;
+}
+
+.list-1 {
+    padding-right: 10px;
+}
+

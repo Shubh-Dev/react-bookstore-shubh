@@ -1,12 +1,13 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import './Header.css';
 
 const Header = () => (
-  <div>
+  <div className="header-container">
     <h2>Book Store</h2>
-    <nav>
-      <li>BOOKS</li>
-      <li>CATEGORIES</li>
+    <nav className="nav-bar">
+      <Link className="list-1" to="/BookList">BOOKS </Link>
+      <Link to="Categories">CATEGORIES</Link>
     </nav>
   </div>
 );
