@@ -1,6 +1,17 @@
 .book-container {
-    height: 40px;
+    height: 70px;
     width: 60vw;
     border: 1px solid black;
     margin: auto auto 30px auto;
+}
+
+h3, p {
+    margin: 0;
+}
+
+.button-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 7px auto auto auto
 }
