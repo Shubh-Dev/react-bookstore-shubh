@@ -10,9 +10,7 @@ return (
     <h3>{title}</h3>
     <p>{author}</p>
     <div className='button-container'>
-    <button type='button'>Comments</button>
     <button type='button'>Remove</button>
-    <button type='button'>Edit</button>
     </div>
   </div>
 )

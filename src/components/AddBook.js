@@ -1,7 +1,8 @@
 import React from 'react';
 import './AddBook.css'
 
-const AddBook = () => (
+const AddBook = () => {
+    return (
   <div className='input-container'>
     <div>
     <h3>Add new Book</h3>
@@ -12,6 +13,7 @@ const AddBook = () => (
     </form>
     </div>
   </div>
-);
+    )
+};
 
 export default AddBook;
