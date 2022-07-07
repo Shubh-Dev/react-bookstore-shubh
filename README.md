@@ -14,8 +14,8 @@
 
 <hr>
 
-Getting Started
-To get the content of this project locally you need to run this command in your terminal:
+## Getting Started
+**To get the content of this project locally you need to run this command in your terminal:**
 
 [BookStore](https://github.com/Shubh-Dev/react-bookstore-shubh.git)
 
