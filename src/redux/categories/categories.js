@@ -1,16 +1,18 @@
-const ADD_BOOK = 'ADD_BOOK';
-const REMOVE_BOOK = 'REMOVE_BOOK';
+const CHECK_STATUS = 'CHECK_STATUS';
 
-export const AddBook = (book) => {
-    return {
-        type: ADD_BOOK,
-        payload: book
-    }
-};
+export const checkBookStatus = () => ({
+    type: CHECK_STATUS,
+    payload: 'Under construction'
 
-export const removeBook = (id) => {
-    return {
-        type: REMOVE_BOOK,
-        payload: id
+});
+
+const Categoryreducer = (categoryState = [], action) => {
+    switch(action.type) {
+        case CHECK_STATUS:
+            return categoryState.push(action.payload);
+        default: 
+            return categoryState;    
     }
 }
+
+export default Categoryreducer;
