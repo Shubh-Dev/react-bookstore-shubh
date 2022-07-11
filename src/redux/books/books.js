@@ -11,7 +11,7 @@ export const removeBook = (id) => ({
   payload: id,
 });
 
-const reducerFunc = (initialStateOfBooks = [], action) => {
+const bookReducerFunc = (initialStateOfBooks = [], action) => {
   switch (action.type) {
     case ADD_BOOK:
       return initialStateOfBooks.push(action.payload);
@@ -23,4 +23,4 @@ const reducerFunc = (initialStateOfBooks = [], action) => {
   }
 };
 
-export default reducerFunc;
+export default bookReducerFunc;
