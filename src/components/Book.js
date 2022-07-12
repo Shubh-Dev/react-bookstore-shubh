@@ -1,18 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeBook, addBook } from '../redux/books/books';
 import './Book.css';
 
-const Book = (book) => {
-  let { title, author } = book;
-  title = 'Mistress of Spices';
-  author = 'Chitra Banerjee Divakaruni';
+const Book = () => {
+  const dispatch = useDispatch();
+  const books = useSelector((state) => state.bookReducerFunc.books);
+  useEffect(() => {
+    if (books.length === 0) {
+      dispatch(addBook());
+    }
+  }, [books]);
+  // console.log(books.books.id)
   return (
-    <div className="book-container">
-      <h3>{title}</h3>
-      <p>{author}</p>
-      <div className="button-container">
-        <button type="button">Remove</button>
-      </div>
+    <div>
+      {books.map((book) => (
+        <div className="book-container" key={book.id}>
+          <h3>{book.title}</h3>
+          <p>{book.author}</p>
+          <div className="button-container">
+            <button type="button">Remove</button>
+          </div>
+        </div>
+      ))}
     </div>
+
   );
 };
 

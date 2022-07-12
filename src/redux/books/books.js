@@ -1,18 +1,19 @@
-const ADD_BOOK = 'bookstore/books/ADD_BOOK';
-const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
+import { v4 as uuidv4 } from 'uuid';
 
-import { v4 as uuidv4 } from "uuid";
+// const GET_BOOK = 'GET_BOOK';
+const ADD_BOOK = 'ADD_BOOK';
+const REMOVE_BOOK = 'REMOVE_BOOK';
 
 const allBooks = {
   books: [
-    {id: uuidv4(), title: 'Mistressof spiced', author: 'Chitra Banerjee Divakaruni'},
-    {id: uuidv4(), title: 'Zero to one', author: 'Peter Thiel'},
-    {id: uuidv4(), title: 'The Alchemist', author: 'Panlo Coenho'},
-    {id: uuidv4(), title: 'Becoming', author: 'Michelle Obama'}
+    { id: uuidv4(), title: 'Mistressof spiced', author: 'Chitra Banerjee Divakaruni' },
+    { id: uuidv4(), title: 'Zero to one', author: 'Peter Thiel' },
+    { id: uuidv4(), title: 'The Alchemist', author: 'Panlo Coenho' },
+    { id: uuidv4(), title: 'Becoming', author: 'Michelle Obama' },
   ],
 };
 
-export const AddBook = (book) => ({
+export const addBook = (book) => ({
   type: ADD_BOOK,
   payload: book,
 });
@@ -22,16 +23,26 @@ export const removeBook = (id) => ({
   payload: id,
 });
 
+// export const getBook = (books) => ({
+//   type: GET_BOOK,
+//   payload: books,
+// });
+
 const bookReducerFunc = (state = allBooks, action) => {
   switch (action.type) {
+    // case GET_BOOK:
+    //   return {
+    //     ...state,
+    //     book: action.payload,
+    //   };
     case ADD_BOOK:
       return {
-        books: [...state.books, action.book]
+        books: [...state.books, action.payload],
       };
 
     case REMOVE_BOOK:
       return {
-        books: [...state.books.filter((book) => book.id !==action.book.id)]
+        books: [...state.books.filter((book) => book.id !== action.book.payload)],
       };
     default:
       return state;
