@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { checkPropTypes } from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeBook, addBook } from '../redux/books/books';
 import './Book.css';
@@ -28,6 +29,11 @@ const Book = () => {
     </div>
 
   );
+};
+
+Book.prototype = {
+  title: checkPropTypes.isRequired,
+  author: checkPropTypes.isRequired,
 };
 
 export default Book;
