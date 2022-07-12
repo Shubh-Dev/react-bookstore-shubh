@@ -11,7 +11,9 @@ const Book = () => {
       dispatch(addBook());
     }
   }, [books]);
-  // console.log(books.books.id)
+  const deleteBook = (book) => {
+    dispatch(removeBook(book));
+  };
   return (
     <div>
       {books.map((book) => (
@@ -19,7 +21,7 @@ const Book = () => {
           <h3>{book.title}</h3>
           <p>{book.author}</p>
           <div className="button-container">
-            <button type="button">Remove</button>
+            <button type="button" onClick={() => deleteBook(book)}>Remove</button>
           </div>
         </div>
       ))}
