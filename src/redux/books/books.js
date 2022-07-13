@@ -1,8 +1,10 @@
 import { v4 as uuidv4 } from 'uuid';
 const ADD_BOOK = 'ADD_BOOK';
 const REMOVE_BOOK = 'REMOVE_BOOK';
-const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/PLtwutbr3xaHC4OZo2oU/books'
-
+const FETCH_BOOK = 'FETCH_BOOK';
+const FETCH_BOOK_ERROR = 'FETCH_BOOK_ERROR';
+const FETCH_BOOK_LOADING = 'FETCH_BOOK_LOADING';
+const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/PLtwutbr3xaHC4OZo2oU/books';
 
 const allBooks = {
   books: [
@@ -22,6 +24,26 @@ export const removeBook = (book) => ({
   type: REMOVE_BOOK,
   book,
 });
+
+export const fetchBook = (books) => ({
+  type: FETCH_BOOK,
+  payload: books
+});
+
+export const fetchBookError = (error) => ({
+  type: FETCH_BOOK_ERROR,
+  payload: error
+});
+
+export const fetchBookLoading = () => ({
+  type: FETCH_BOOK_LOADING,
+});
+
+const initialState = {
+  books: [],
+  loading: false,
+  error: null
+};
 
 const bookReducerFunc = (state = allBooks, action) => {
   switch (action.type) {
