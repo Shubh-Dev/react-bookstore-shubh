@@ -7,8 +7,10 @@ import './Book.css';
 
 const Book = (props) => {
   const {
+    /* eslint-disable react/prop-types */
     id, title, author, category,
   } = props;
+  /* eslint-enable */
 
   const dispatch = useDispatch();
 
