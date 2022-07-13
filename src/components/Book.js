@@ -1,39 +1,51 @@
-import React, { useEffect } from 'react';
-import { checkPropTypes } from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
-import { removeBook, addBook } from '../redux/books/books';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { deleteBook } from '../redux/books/books';
+import Progress from './Progress';
 import './Book.css';
 
-const Book = () => {
+const Book = (props) => {
+  const {
+    /* eslint-disable react/prop-types */
+    id, title, author, category,
+  } = props;
+  /* eslint-enable */
+
   const dispatch = useDispatch();
-  const books = useSelector((state) => state.bookReducerFunc.books);
-  useEffect(() => {
-    if (books.length === 0) {
-      dispatch(addBook());
-    }
-  }, [books]);
-  const deleteBook = (book) => {
-    dispatch(removeBook(book));
+
+  const removeHandler = () => {
+    dispatch(deleteBook(id));
   };
+
   return (
-    <div>
-      {books.map((book) => (
-        <div className="book-container" key={book.id}>
-          <h3>{book.title}</h3>
-          <p>{book.author}</p>
-          <div className="button-container">
-            <button type="button" onClick={() => deleteBook(book)}>Remove</button>
-          </div>
+    <div className="book-container">
+      <div className="book-details">
+        <h3>{category}</h3>
+        <h2>{title}</h2>
+        <p>{author}</p>
+        <div>
+          <button type="button">Comments</button>
+          <button type="button" onClick={removeHandler}>Remove</button>
+          <button type="button">Edit</button>
         </div>
-      ))}
+      </div>
+      <div>
+        <Progress />
+        <div>
+          <h2>CURRENT CHAPTER</h2>
+          <h3>Chapter 1: &quot; Intuition&quot;</h3>
+          <button type="button">UPDATE PROGRESS</button>
+        </div>
+      </div>
     </div>
 
   );
 };
 
 Book.prototype = {
-  title: checkPropTypes.isRequired,
-  author: checkPropTypes.isRequired,
+  title: PropTypes.isRequired,
+  author: PropTypes.isRequired,
 };
 
 export default Book;
