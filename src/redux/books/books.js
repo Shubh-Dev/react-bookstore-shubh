@@ -1,8 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
-
-// const GET_BOOK = 'GET_BOOK';
 const ADD_BOOK = 'ADD_BOOK';
 const REMOVE_BOOK = 'REMOVE_BOOK';
+const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/PLtwutbr3xaHC4OZo2oU/books'
+
 
 const allBooks = {
   books: [
@@ -23,18 +23,8 @@ export const removeBook = (book) => ({
   book,
 });
 
-// export const getBook = (books) => ({
-//   type: GET_BOOK,
-//   payload: books,
-// });
-
 const bookReducerFunc = (state = allBooks, action) => {
   switch (action.type) {
-    // case GET_BOOK:
-    //   return {
-    //     ...state,
-    //     book: action.payload,
-    //   };
     case ADD_BOOK:
       return {
         books: [...state.books, action.payload],

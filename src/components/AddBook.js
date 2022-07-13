@@ -52,9 +52,3 @@ const AddBook = () => {
 };
 
 export default AddBook;
-
-// {
-//   ...state,
-//   id: uuidv4(),
-//   [e.target.name]: e.target.value,
-// }
