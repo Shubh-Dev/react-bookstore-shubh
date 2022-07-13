@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
 const ADD_BOOK = 'ADD_BOOK';
 const REMOVE_BOOK = 'REMOVE_BOOK';
 const FETCH_BOOK = 'FETCH_BOOK';
@@ -6,33 +5,24 @@ const FETCH_BOOK_ERROR = 'FETCH_BOOK_ERROR';
 const FETCH_BOOK_LOADING = 'FETCH_BOOK_LOADING';
 const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/PLtwutbr3xaHC4OZo2oU/books';
 
-const allBooks = {
-  books: [
-    { id: uuidv4(), title: 'Mistressof spiced', author: 'Chitra Banerjee Divakaruni' },
-    { id: uuidv4(), title: 'Zero to one', author: 'Peter Thiel' },
-    { id: uuidv4(), title: 'The Alchemist', author: 'Panlo Coenho' },
-    { id: uuidv4(), title: 'Becoming', author: 'Michelle Obama' },
-  ],
-};
-
 export const addBook = (book) => ({
   type: ADD_BOOK,
   payload: book,
 });
 
-export const removeBook = (book) => ({
+export const removeBook = (id) => ({
   type: REMOVE_BOOK,
-  book,
+  payload: id,
 });
 
 export const fetchBook = (books) => ({
   type: FETCH_BOOK,
-  payload: books
+  payload: books,
 });
 
 export const fetchBookError = (error) => ({
   type: FETCH_BOOK_ERROR,
-  payload: error
+  payload: error,
 });
 
 export const fetchBookLoading = () => ({
@@ -42,19 +32,86 @@ export const fetchBookLoading = () => ({
 const initialState = {
   books: [],
   loading: false,
-  error: null
+  error: null,
 };
 
-const bookReducerFunc = (state = allBooks, action) => {
+export const getBooksFromApi = () => (dispatch) => {
+  dispatch(fetchBookLoading());
+  fetch(URL)
+    .then((response) => response.json())
+    .then((data) => {
+      const newBooks = [];
+      Object.keys(data).forEach((key) => {
+        if (key) {
+          newBooks.push({
+            ...data[key][0],
+            item_id: key,
+          });
+        }
+      });
+      dispatch(fetchBook(newBooks));
+    })
+    .catch((error) => {
+      dispatch(fetchBookError(error.message));
+    });
+};
+
+export const postBooks = (book) => (dispatch) => {
+  fetch(URL, {
+    method: 'POST',
+    headers: {
+      'content-type': 'applicaion/json',
+    },
+    body: JSON.stringify((book)),
+  }).then(() => {
+    dispatch(addBook(book));
+  });
+};
+
+export const deleteBook = (id) => (dispatch) => {
+  fetch(`${URL}/${id}`, {
+    method: 'DELETE',
+    body: JSON.stringify({ item_id: id }),
+  })
+    .then(() => {
+      dispatch(removeBook(id));
+    });
+};
+
+const bookReducerFunc = (state = initialState, action) => {
   switch (action.type) {
+    case FETCH_BOOK_LOADING:
+      return {
+        ...state,
+        loading: true,
+      };
+
     case ADD_BOOK:
       return {
+        ...state,
+        loading: false,
         books: [...state.books, action.payload],
       };
 
     case REMOVE_BOOK:
       return {
-        books: [...state.books.filter((book) => book.id !== action.book.id)],
+        ...state,
+        loading: false,
+        books: state.books.filter((book) => book.item_id !== action.payload),
+      };
+
+    case FETCH_BOOK:
+      return {
+        ...state,
+        loading: false,
+        books: action.payload,
+      };
+
+    case FETCH_BOOK_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
       };
     default:
       return state;
