@@ -3,14 +3,12 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deleteBook } from '../redux/books/books';
 import Progress from './Progress';
-import './Book.css';
+import './scss/Book.scss';
 
 const Book = (props) => {
   const {
-    /* eslint-disable react/prop-types */
     id, title, author, category,
   } = props;
-  /* eslint-enable */
 
   const dispatch = useDispatch();
 
@@ -21,21 +19,26 @@ const Book = (props) => {
   return (
     <div className="book-container">
       <div className="book-details">
-        <h3>{category}</h3>
-        <h2>{title}</h2>
-        <p>{author}</p>
-        <div>
-          <button type="button">Comments</button>
-          <button type="button" onClick={removeHandler}>Remove</button>
-          <button type="button">Edit</button>
+        <div className="book-holder">
+          <h3 className="category">{category}</h3>
+          <h2 className="title">{title}</h2>
+          <p className="author">{author}</p>
+        </div>
+        <div className="button-container">
+          <button className="btn-btn" type="button">Comments</button>
+          <span className="stick" />
+          <button className="btn-btn" type="button" onClick={removeHandler}>Remove</button>
+          <span className="stick" />
+          <button className="btn-btn" type="button">Edit</button>
         </div>
       </div>
-      <div>
+      <div className="progress-details">
         <Progress />
+        <div className="line" />
         <div>
-          <h2>CURRENT CHAPTER</h2>
-          <h3>Chapter 1: &quot; Intuition&quot;</h3>
-          <button type="button">UPDATE PROGRESS</button>
+          <h2 className="current-chapter">CURRENT CHAPTER</h2>
+          <h3 className="chapter-progress">Chapter1:&quot;Intuition&quot;</h3>
+          <button type="button" className="update-progress-btn">UPDATE PROGRESS</button>
         </div>
       </div>
     </div>
@@ -43,9 +46,11 @@ const Book = (props) => {
   );
 };
 
-Book.prototype = {
-  title: PropTypes.isRequired,
-  author: PropTypes.isRequired,
+Book.propTypes = {
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
 };
 
 export default Book;
