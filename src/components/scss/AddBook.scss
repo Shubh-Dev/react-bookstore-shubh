@@ -5,7 +5,7 @@
 }
 
 .add-book-title {
-  font-family: monospace;
+  font-family: Montserrat, Helvetica, Arial, Verdana, Tahoma, sans-serif;
   font-size: 1.25rem;
   font-weight: bold;
   color: #888;
@@ -27,6 +27,11 @@ input {
   margin: 5px;
 }
 
+input > ::placeholder {
+  color: #c4c4c4;
+  font-size: 1rem;
+}
+
 .submit-btn {
   width: 11.5rem;
   height: 2.813rem;
@@ -36,4 +41,11 @@ input {
   color: #fff;
   border-radius: 3px;
   background-color: #0290ff;
+}
+
+.horizontal-line {
+  width: 87%;
+  height: 1px;
+  background-color: #c7cdd4;
+  margin: 50px auto 0 auto;
 }

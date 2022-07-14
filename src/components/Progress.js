@@ -1,5 +1,7 @@
 import React from 'react';
 import './scss/Progress.scss';
+// import { CircularProgressbar } from 'react-circular-progressbar';
+// import 'react-circular-progressbar/dist/styles.css';
 
 const Progress = () => (
   <div className="progress-container d_flex_r g10">

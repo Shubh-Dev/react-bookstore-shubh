@@ -7,7 +7,7 @@ const Header = () => (
     <h2 className="main-header">Bookstore CMS</h2>
     <nav className="nav-bar">
       <Link className="list-1" to="/">BOOKS </Link>
-      <Link className="list-1" to="/Categories">CATEGORIES</Link>
+      <Link className="list-2" to="/Categories">CATEGORIES</Link>
     </nav>
   </div>
 );

@@ -1,3 +1,5 @@
+// @import url('https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@200;300&display=swap');
+
 .header-container {
   display: flex;
   height: 5.938rem;
@@ -14,13 +16,27 @@
 .list-1 {
   padding-left: 30px;
   text-decoration: none;
-  font-family: monospace;
+  font-family: Montserrat, Helvetica, Arial, Verdana, Tahoma, sans-serif;
   font-size: 0.813rem;
   color: #121212;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+}
+
+.list-2 {
+  padding-left: 30px;
+  text-decoration: none;
+  font-family: Montserrat, Helvetica, Arial, Verdana, Tahoma, sans-serif;
+  font-size: 0.813rem;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  color: #928f91;
 }
 
 .main-header {
-  font-family: monospace;
+  font-family: 'Montserrat', Helvetica, Arial, Verdana, Tahoma, sans-serif;
   font-size: 1.875rem;
   font-weight: bold;
   color: #0290ff;
