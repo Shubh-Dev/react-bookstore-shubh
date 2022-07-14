@@ -1,0 +1,39 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,700,300);
+
+.progress-container {
+  display: flex;
+}
+
+.circle-wrap {
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  background: #2664ea;
+  border-radius: 50%;
+  border: 1px solid #cdcbd0;
+}
+
+.circle {
+  margin: 5px auto auto auto;
+  width: 90px;
+  height: 90px;
+  background: #fefcff;
+  border-radius: 50%;
+}
+
+.percentage_container {
+  margin: 2rem auto auto 20px;
+}
+
+.percent-progress {
+  font-family: monospace;
+  font-size: 2rem;
+  color: #121212;
+}
+
+.complete {
+  opacity: 0.5;
+  font-family: monospace;
+  font-size: 0.875rem;
+  color: #121212;
+}

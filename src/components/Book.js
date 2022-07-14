@@ -19,9 +19,11 @@ const Book = (props) => {
   return (
     <div className="book-container">
       <div className="book-details">
-        <h3 className="category">{category}</h3>
-        <h2 className="title">{title}</h2>
-        <p className="author">{author}</p>
+        <div className="book-holder">
+          <h3 className="category">{category}</h3>
+          <h2 className="title">{title}</h2>
+          <p className="author">{author}</p>
+        </div>
         <div className="button-container">
           <button className="btn-btn" type="button">Comments</button>
           <button className="btn-btn" type="button" onClick={removeHandler}>Remove</button>
@@ -30,10 +32,11 @@ const Book = (props) => {
       </div>
       <div className="progress-details">
         <Progress />
+        <div className="line" />
         <div>
-          <h2>CURRENT CHAPTER</h2>
-          <h3>Chapter 1: &quot; Intuition&quot;</h3>
-          <button type="button">UPDATE PROGRESS</button>
+          <h2 className="current-chapter">CURRENT CHAPTER</h2>
+          <h3 className="chapter-progress">Chapter 1: &quot; Intuition&quot;</h3>
+          <button type="button" className="update-progress-btn">UPDATE PROGRESS</button>
         </div>
       </div>
     </div>

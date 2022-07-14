@@ -26,27 +26,30 @@ const AddBook = () => {
   return (
     <div className="input-container">
       <div>
-        <h3>Add new Book</h3>
+        <h3 className="add-book-title">ADD NEW BOOK</h3>
         <form className="form" onSubmit={handleSubmit}>
           <input
+            className="title-input"
             type="text"
             name="title"
             placeholder="Add Book"
             required
           />
           <input
+            className="author-input"
             type="text"
             name="author"
             placeholder="Author"
             required
           />
           <input
+            className="category-input"
             type="text"
             name="category"
             placeholder="Category"
             required
           />
-          <button type="submit">Add Book</button>
+          <button type="submit" className="submit-btn">Add Book</button>
         </form>
       </div>
     </div>

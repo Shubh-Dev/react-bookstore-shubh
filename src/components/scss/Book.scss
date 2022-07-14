@@ -1,12 +1,11 @@
 .book-container {
-  height: 10.625rem;
-  border: 1px solid black;
-  margin: 2.313rem 50px 30px 50px;
-  border: 1px red dashed;
+  height: 8rem;
+  margin: 15px 50px 15px 50px;
   background-color: #fff;
-  padding: 2rem 9.188rem 1.625rem 1.688rem;
+  padding: 30px;
   display: flex;
   justify-content: space-between;
+  border-radius: 10px;
 }
 
 h3,
@@ -18,12 +17,17 @@ p {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  margin: 7px auto auto auto;
+  padding-left: 0;
+  margin: 35px auto auto auto;
+}
+
+.book-holder {
+  padding-left: 7px;
 }
 
 .category {
   opacity: 0.5;
-  font-family: Montserrat;
+  font-family: monospace;
   font-size: 1rem;
   font-weight: bold;
   color: #121212;
@@ -31,7 +35,7 @@ p {
 }
 
 .title {
-  font-family: RobotoSlab;
+  font-family: monospace;
   font-size: 1.375rem;
   font-weight: bold;
   color: #121212;
@@ -39,26 +43,56 @@ p {
 }
 
 .author {
-  font-family: RobotoSlab;
+  font-family: monospace;
   font-size: 0.875rem;
   font-weight: 300;
   line-height: normal;
   color: #4386bf;
+  margin-top: 2px;
 }
 
 .progress-details {
   display: flex;
   justify-content: space-between;
-  gap: 15vw;
-}
-
-.button-container {
-  margin: 10px auto auto;
-
+  gap: 10vw;
 }
 
 .btn-btn {
   border: none;
   background: none;
   color: #4386bf;
+  cursor: pointer;
+}
+
+.current-chapter {
+  opacity: 0.5;
+  font-family: monospace;
+  font-size: 0.813rem;
+  font-weight: 300;
+  color: #121212;
+}
+
+.chapter-progress {
+  font-family: monospace;
+  font-size: 1rem;
+  font-weight: 300;
+  color: #121212;
+}
+
+.update-progress-btn {
+  width: 11rem;
+  height: 2rem;
+  background-color: #0290ff;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  margin: 20px 30px auto auto;
+  color: #fff;
+}
+
+.line {
+  width: 0.5px;
+  height: 6rem;
+  border: solid 1px #e8e8e8;
+  background-color: #e8e8e8;
+  margin: auto 0 auto 0;
 }
