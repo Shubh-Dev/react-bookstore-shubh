@@ -1,0 +1,64 @@
+.book-container {
+  height: 10.625rem;
+  border: 1px solid black;
+  margin: 2.313rem 50px 30px 50px;
+  border: 1px red dashed;
+  background-color: #fff;
+  padding: 2rem 9.188rem 1.625rem 1.688rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+h3,
+p {
+  margin: 0;
+}
+
+.button-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 7px auto auto auto;
+}
+
+.category {
+  opacity: 0.5;
+  font-family: Montserrat;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #121212;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-family: RobotoSlab;
+  font-size: 1.375rem;
+  font-weight: bold;
+  color: #121212;
+  margin: 0;
+}
+
+.author {
+  font-family: RobotoSlab;
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: normal;
+  color: #4386bf;
+}
+
+.progress-details {
+  display: flex;
+  justify-content: space-between;
+  gap: 15vw;
+}
+
+.button-container {
+  margin: 10px auto auto;
+
+}
+
+.btn-btn {
+  border: none;
+  background: none;
+  color: #4386bf;
+}
