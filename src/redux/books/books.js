@@ -59,9 +59,6 @@ export const getBooksFromApi = () => (dispatch) => {
 export const postBooks = (book) => (dispatch) => {
   fetch(URL, {
     method: 'POST',
-    headers: {
-      'content-type': 'applicaion/json',
-    },
     body: JSON.stringify((book)),
   }).then(() => {
     dispatch(addBook(book));
