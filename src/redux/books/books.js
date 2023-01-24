@@ -56,19 +56,19 @@ export const getBooksFromApi = () => (dispatch) => {
     });
 };
 
-export const postBooks = (book) => {
+export const postBooks = (book) => (
   async (dispatch) => {
-   await fetch(URL, {
-    method: 'POST',
-    headers: {
-      'content-type': 'applicaion/json',
-    },
-    body: JSON.stringify((book)),
-  }).then(() => {
-    dispatch(addBook(book));
-  });
- }
-};
+    await fetch(URL, {
+      method: 'POST',
+      headers: {
+        'content-type': 'applicaion/json',
+      },
+      body: JSON.stringify((book)),
+    }).then(() => {
+      dispatch(addBook(book));
+    });
+  }
+);
 
 export const deleteBook = (id) => (dispatch) => {
   fetch(`${URL}/${id}`, {
